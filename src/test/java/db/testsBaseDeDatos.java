@@ -98,4 +98,26 @@ public class testsBaseDeDatos {
 		EntityManagerHelper.persist(mensaje);
 		EntityManagerHelper.persist(hangout);
 	}
+	
+	@Test
+	public void persistoChatConAtributosPropios() {
+		Usuario usuario1 = new Usuario();
+		usuario1.setNombre("Santiago");
+		
+		Usuario usuario2 = new Usuario();
+		usuario2.setNombre("Santiago");
+		
+		Mensaje mensaje = new Mensaje();
+		mensaje.setTexto("Mi texto");
+		
+		Chat chat = new Chat();
+		chat.addMensaje(mensaje);
+		chat.setPrimerParticipante(usuario1);
+		chat.setSegundoParticipante(usuario2);
+
+		EntityManagerHelper.persist(usuario1);
+		EntityManagerHelper.persist(usuario2);
+		EntityManagerHelper.persist(mensaje);
+		EntityManagerHelper.persist(chat);
+	}
 }
