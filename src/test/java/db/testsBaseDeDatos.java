@@ -1,5 +1,7 @@
 package db;
 
+import model.Usuario;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,5 +27,14 @@ public class testsBaseDeDatos {
 	@After
 	public void tearDown() throws Exception {
 		EntityManagerHelper.commit();
+	}
+	
+	@Test
+	public void persistoUsuario() {
+		Usuario usuario = new Usuario();
+		usuario.setNombre("Santiago");
+		usuario.setCorreo("santiago@santiago.com");
+		
+		EntityManagerHelper.persist(usuario);
 	}
 }
