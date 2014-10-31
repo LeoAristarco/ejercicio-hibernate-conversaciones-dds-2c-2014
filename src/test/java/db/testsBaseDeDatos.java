@@ -2,6 +2,7 @@ package db;
 
 import java.sql.Date;
 
+import model.Chat;
 import model.Correo;
 import model.Mensaje;
 import model.Usuario;
@@ -71,5 +72,12 @@ public class testsBaseDeDatos {
 		EntityManagerHelper.persist(correo);
 		EntityManagerHelper.persist(usuario);
 		EntityManagerHelper.persist(mensaje);
+	}
+	
+	@Test
+	public void persistoChar() {
+		Chat chat = new Chat();
+		
+		EntityManagerHelper.persist(chat);
 	}
 }
