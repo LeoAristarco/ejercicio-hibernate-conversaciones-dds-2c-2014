@@ -13,4 +13,16 @@ public abstract class Conversacion extends EntidadPersistente {
 	@OneToMany
 	@JoinColumn(name="conversacion_id")
 	private List<Mensaje> mensajes = new ArrayList<Mensaje>();
+
+	public List<Mensaje> getMensajes() {
+		return mensajes;
+	}
+
+	public void setMensajes(List<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
+	
+	public void addMensaje(Mensaje mensaje) {
+		this.mensajes.add(mensaje);
+	}
 }

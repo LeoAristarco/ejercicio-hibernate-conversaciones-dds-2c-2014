@@ -77,15 +77,25 @@ public class testsBaseDeDatos {
 	
 	@Test
 	public void persistoChat() {
-		Chat chat = new Chat();
+		Mensaje mensaje = new Mensaje();
+		mensaje.setTexto("Mi texto");
 		
+		Chat chat = new Chat();
+		chat.addMensaje(mensaje);
+
+		EntityManagerHelper.persist(mensaje);
 		EntityManagerHelper.persist(chat);
 	}
 	
 	@Test
 	public void persistoHangout() {
-		Hangout hangout = new Hangout();
+		Mensaje mensaje = new Mensaje();
+		mensaje.setTexto("Mi texto");
 		
+		Hangout hangout = new Hangout();
+		hangout.addMensaje(mensaje);
+
+		EntityManagerHelper.persist(mensaje);
 		EntityManagerHelper.persist(hangout);
 	}
 }
