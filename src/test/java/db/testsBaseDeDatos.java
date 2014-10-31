@@ -120,4 +120,36 @@ public class testsBaseDeDatos {
 		EntityManagerHelper.persist(mensaje);
 		EntityManagerHelper.persist(chat);
 	}
+	
+	@Test
+	public void persistoHangoutConAtributosPropios() {
+		Usuario usuario1 = new Usuario();
+		usuario1.setNombre("Santiago");
+		
+		Usuario usuario2 = new Usuario();
+		usuario2.setNombre("Santiago");
+		
+		Usuario usuario3 = new Usuario();
+		usuario3.setNombre("Santiago");
+		
+		Usuario usuario4 = new Usuario();
+		usuario4.setNombre("Santiago");
+		
+		Mensaje mensaje = new Mensaje();
+		mensaje.setTexto("Mi texto");
+		
+		Hangout hangout = new Hangout();
+		hangout.addMensaje(mensaje);
+		hangout.setDueño(usuario1);
+		hangout.addUsuario(usuario2);
+		hangout.addUsuario(usuario3);
+		hangout.addUsuario(usuario4);
+
+		EntityManagerHelper.persist(usuario1);
+		EntityManagerHelper.persist(usuario2);
+		EntityManagerHelper.persist(usuario3);
+		EntityManagerHelper.persist(usuario4);
+		EntityManagerHelper.persist(mensaje);
+		EntityManagerHelper.persist(hangout);
+	}
 }
