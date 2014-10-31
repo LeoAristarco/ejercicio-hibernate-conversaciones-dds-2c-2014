@@ -11,7 +11,8 @@ public class Mensaje extends EntidadPersistente {
 	
 	private Date fecha;
 	
-	@Transient
+	@OneToOne
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 
 	public String getTexto() {

@@ -49,4 +49,19 @@ public class testsBaseDeDatos {
 		
 		EntityManagerHelper.persist(mensaje);
 	}
+	
+	@Test
+	public void persistoMensajeConUsuario() {
+		Usuario usuario = new Usuario();
+		usuario.setNombre("Santiago");
+		usuario.setCorreo("santiago@santiago.com");
+		
+		Mensaje mensaje = new Mensaje();
+		mensaje.setTexto("Mi texto");
+		mensaje.setFecha(Date.valueOf("2010-10-10"));
+		mensaje.setUsuario(usuario);
+		
+		EntityManagerHelper.persist(usuario);
+		EntityManagerHelper.persist(mensaje);
+	}
 }
