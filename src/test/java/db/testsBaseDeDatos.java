@@ -43,24 +43,32 @@ public class testsBaseDeDatos {
 	
 	@Test
 	public void persistoUsuario() {
+		Correo correo = new Correo();
+		correo.setCorreo("santiago@santiago.com");
+		
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Santiago");
-		usuario.setCorreo("santiago@santiago.com");
+		usuario.setCorreo(correo);
 		
+		EntityManagerHelper.persist(correo);
 		EntityManagerHelper.persist(usuario);
 	}
 
 	@Test
 	public void persistoMensaje() {
+		Correo correo = new Correo();
+		correo.setCorreo("santiago@santiago.com");
+		
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Santiago");
-		usuario.setCorreo("santiago@santiago.com");
+		usuario.setCorreo(correo);
 		
 		Mensaje mensaje = new Mensaje();
 		mensaje.setTexto("Mi texto");
 		mensaje.setFecha(Date.valueOf("2010-10-10"));
 		mensaje.setUsuario(usuario);
-		
+
+		EntityManagerHelper.persist(correo);
 		EntityManagerHelper.persist(usuario);
 		EntityManagerHelper.persist(mensaje);
 	}

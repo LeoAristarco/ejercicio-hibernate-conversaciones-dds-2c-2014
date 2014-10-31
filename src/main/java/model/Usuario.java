@@ -1,18 +1,20 @@
 package model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Usuario extends EntidadPersistente {
 
-	private String correo;
+	@OneToOne
+	@JoinColumn(name="correo_id")
+	private Correo correo;
 	
 	private String nombre;
 	
-	public String getCorreo() {
+	public Correo getCorreo() {
 		return correo;
 	}
-	public void setCorreo(String correo) {
+	public void setCorreo(Correo correo) {
 		this.correo = correo;
 	}
 	public String getNombre() {
