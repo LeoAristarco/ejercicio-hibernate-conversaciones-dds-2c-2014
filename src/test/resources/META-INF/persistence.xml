@@ -13,6 +13,7 @@
     	<class>model.Correo</class>
     	<class>model.Conversacion</class>
     	<class>model.Chat</class>
+    	<class>model.Hangout</class>
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
