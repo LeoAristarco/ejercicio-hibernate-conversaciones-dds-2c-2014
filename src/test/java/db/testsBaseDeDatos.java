@@ -2,6 +2,7 @@ package db;
 
 import java.sql.Date;
 
+import model.Correo;
 import model.Mensaje;
 import model.Usuario;
 
@@ -33,6 +34,14 @@ public class testsBaseDeDatos {
 	}
 	
 	@Test
+	public void persistoCorreo() {
+		Correo correo = new Correo();
+		correo.setCorreo("santiago@santiago.com");
+		
+		EntityManagerHelper.persist(correo);
+	}
+	
+	@Test
 	public void persistoUsuario() {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Santiago");
@@ -40,18 +49,9 @@ public class testsBaseDeDatos {
 		
 		EntityManagerHelper.persist(usuario);
 	}
-	
+
 	@Test
-	public void persistoMensajeSinUsuario() {
-		Mensaje mensaje = new Mensaje();
-		mensaje.setTexto("Mi texto");
-		mensaje.setFecha(Date.valueOf("2010-10-10"));
-		
-		EntityManagerHelper.persist(mensaje);
-	}
-	
-	@Test
-	public void persistoMensajeConUsuario() {
+	public void persistoMensaje() {
 		Usuario usuario = new Usuario();
 		usuario.setNombre("Santiago");
 		usuario.setCorreo("santiago@santiago.com");
